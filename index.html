@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CAB402 | Assigment 2</title>
+  <link rel="stylesheet" href="./styles.css">
+  <script src="https://unpkg.com/vue@3"></script>
+</head>
+
+<body>
+
+  <header>
+    <h1>Vanilla JS vs Vue.JS</h1>
+    <p>By: Gabriel Garate Zea</p>
+    <p>Student No: N10023780</p>
+  </header>
+  <main>
+
+    <div class="row">
+
+      <div class="col">
+        <!-- Counter V1 -->
+        <div id="app__counter-js" class="app">
+          <h2>Counter V1.0</h2>
+          <p>Count: <span data-counter data-value="0">0</span></p>
+          <button class="btn btn--minus">-</button>
+          <button class="btn btn--plus">+</button>
+        </div>
+
+        <!-- Counter V2 -->
+        <div id="app__counter2-js" class="app">
+          <h2>Counter V2.0</h2>
+          <p>Count: <span data-counter>0</span></p>
+          <button class="btn btn--minus" onclick="appCounterJS_v2.decrease()">-</button>
+          <button class="btn btn--plus" onclick="appCounterJS_v2.increase()">+</button>
+        </div>
+      </div>
+
+      <div class="col">
+        <!-- Counter Vue -->
+        <div id="app__counter-vue" class="app">
+          <h2>{{ title }}</h2>
+          <p>Count: {{ count }}</p>
+          <button @click.prevent="decrease" class="btn btn--minus">-</button>
+          <button @click.prevent="increase" class="btn btn--plus">+</button>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="row">
+
+      <div class="col">
+        <div id="app__todo-js" class="app">
+          <h2>Todo</h2>
+
+          <div class="input__container">
+            <input type="text" placeholder="Add a new item">
+            <button>Add</button>
+          </div>
+          <div class="todo-list"></div>
+
+        </div>
+      </div>
+
+      <div class="col">
+        <!-- Todo List -->
+        <div id="app__todo-vue" class="app">
+          <h2>{{ title }}</h2>
+          <div class="input__container">
+            <input type="text" placeholder="Add a new item" v-model="newItem">
+            <button @click="add(newItem)">Add</button>
+          </div>
+          <div class="todo-list">
+            <div class="list-item" v-for="(item,index) in items">
+              <div class="list-item__details" :contentEditable="item.editable">
+                {{ item.title }}
+              </div>
+              <div class="list-item__controls">
+                <button v-if="!item.editable" class="btn btn--edit" @click="item.editable = true">Edit</button>
+                <button v-else class="btn btn--edit" @click="item.editable = false">Save</button>
+                <button class="btn btn--remove" @click="remove(index)">Remove</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+  <footer>
+    QUT - CAB402 - Programming Paradigms
+  </footer>
+  <script src="./scripts.js"></script>
+  <script src="./vue-scripts.js"></script>
+</body>
+
+</html>

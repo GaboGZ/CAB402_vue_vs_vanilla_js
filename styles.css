@@ -1,0 +1,119 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  padding: 0;
+}
+
+h1,h2,h3,h4,h5 {
+  margin-bottom: 0.5em;
+}
+
+p{
+  margin-bottom: 1em;
+}
+
+header {
+  padding: 2em 0;
+  text-align: center;
+  background-color: #111;
+  color: #fafafa;
+}
+main {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+footer {
+  text-align: center;
+  background-color: #111;
+  color: #fafafa;
+  padding: 2em 0;
+}
+
+.row {
+  padding: 1em;
+}
+@media screen and (min-width:680px) {
+  .row {
+    display: flex;
+  }
+  .col {
+    flex: 0 0 50%;
+  }
+  .row .col:first-of-type {
+    padding-right: 1em;
+  }
+  .row .col:nth-of-type(2) {
+    padding-left: 1em;
+    border-left: 2px solid #eee;
+  }
+}
+
+.app {
+  padding: 1em;
+  border: 1px solid #f0f0f0;
+  box-shadow: 0 0 10px 2px #f0f0f0;
+  margin-bottom: 1em;
+  width: 100%;
+}
+
+button, .btn {
+  background-color: #111;
+  color: #fff;
+  border: 0;
+  padding: 8px 12px;
+}
+button:hover, .btn:hover {
+  opacity: 0.9;
+  cursor: pointer;
+}
+.btn--minus,.btn--edit {
+  background-color: grey;
+}
+.btn--plus {
+  background-color: green;
+}
+
+/* Todo List app*/
+.input__container {
+  margin-bottom: 1em;
+}
+.input__container input {
+  padding: 6px;
+  height: 100%;
+  border: 1px solid #f0f0f0;
+  min-width: 300px;
+}
+.list-item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.5em;
+  border: 1px solid #f0f0f0;
+  padding: 0.5em;
+}
+.list-item__details {
+  width: 100%;
+  margin-right: 5px;
+}
+.list-item__details[contentEditable="true"] {
+  background-color: #f0f0f0;
+  color: blue;
+  padding: 0 2px;
+}
+.list-item__controls {
+  display: flex;
+}
+#app__todo-js .list-item__details[contentEditable="false"] + .list-item__controls .btn--edit {
+  display: flex;
+}
+#app__todo-js .list-item__details[contentEditable="false"] + .list-item__controls .btn--save {
+  display: none;
+}
+#app__todo-js .list-item__details[contentEditable="true"] + .list-item__controls .btn--edit {
+  display: none;
+}
+#app__todo-js .list-item__details[contentEditable="true"] + .list-item__controls .btn--save {
+  display: flex;
+}
