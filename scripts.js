@@ -113,3 +113,37 @@ const setupButtonListeners = () => {
     })
   })
 }
+
+// Getters and Setters Example
+const student_ = {
+  firstName: "Gabriel",
+  lastName: "Garate",
+  unitCode: "CAB402",
+  get fullname() {
+    return `${this.firstName} ${this.lastName}`;
+  },
+  get unit() {
+    return String(this.unitCode).toUpperCase();
+  },
+  set unit(code) {
+    this.unitCode = String(code).toUpperCase();
+  }
+};
+
+// Proxy Example
+// (1) Define target
+const student = {
+  firstName: "Gabriel",
+  lastName: "Garate",
+  unitCode: "CAB402",
+}
+// (2) Define handler
+const handler = {
+  get(target, property) {
+    console.log(`Property ${property} accessed.`);
+    return target[property];
+  }
+}
+
+// (3) Create Proxy
+const proxy = new Proxy(student, handler);
